@@ -40,7 +40,7 @@ public class PasswordEncryption {
     public static int encrypt(int num) {
         int encryptedNum = 0;
         
-        while (num > 0) {
+        while (num > 0) {//循环
             int digit = num % 10;
             int newDigit = (digit + 5) % 10;
             encryptedNum = encryptedNum * 10 + newDigit;
