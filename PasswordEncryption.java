@@ -4,7 +4,6 @@ public class PasswordEncryption {
     
     public static void main(String[] args) {
         
-        int choice;
         int num;
         
         Scanner input = new Scanner(System.in);
@@ -14,7 +13,7 @@ public class PasswordEncryption {
             System.out.println("1. 加密");
             System.out.println("2. 解密");
             System.out.println("3. 退出");
-            choice = input.nextInt();
+            int choice = input.nextInt();
             
             switch (choice) {//根据用户选择的操作执行相应的方法
                 case 1:
