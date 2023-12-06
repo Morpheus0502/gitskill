@@ -36,17 +36,27 @@ public class PasswordEncryption {
         } while (choice != 3);//如果用户没有选择退出操作，则继续循环
     }
     
-    public static int encrypt(int num) {//加密
+     public static int encrypt(int num) {//加密
         int encryptedNum = 0;
-        
+        int m=1;
+        int temp=(num%10)*10+num/10%10;
+        num-=(num%100);
+        num+=temp;
         while (num > 0) {
             int digit = num % 10;
             int newDigit = (digit + 5) % 10;
-            encryptedNum = encryptedNum * 10 + newDigit;
+            encryptedNum = encryptedNum + newDigit*m;
+            m*=10;
             num = num / 10;
         }
-        
-        return encryptedNum;//返回加密后的数字密码
+        encryptedNum*=2;
+        int reversedNumber = 0;
+        while (encryptedNum > 0) {
+            int lastDigit = encryptedNum % 10;
+            encryptedNum /= 10;
+            reversedNumber = reversedNumber * 10 + lastDigit;
+        }
+        return reversedNumber;//返回加密后的数字密码
     }
     
     public static int decrypt(int num) {//解密
